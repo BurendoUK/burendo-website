@@ -1,0 +1,53 @@
+<header class="header f-20" name="top">
+	
+	<div class="container">
+	
+		<h1 class="header-logo">
+			<a href="{{ site.link }}" title="{{ site.name }}">
+				{% include 'partials/logo.twig' %}
+			</a>
+		</h1>
+				
+		<nav class="header-menu" id="menu">
+			<ul>
+			{% for item in options.header.menu.items %}
+				{% if 'current-menu-parent' in item.classes or 'current-product_cat-parent' in item.classes or 'current-menu-item' in item.classes %}
+					{% set class = 'active' %}
+				{% else %}
+					{% set class = '' %}
+				{% endif %}
+				<li class="header-menu-item {{ class }} {% if loop.last %}header-menu-item-contact f-bold{% endif %}{% if item.children %} has-submenu{% endif %}">
+					<a class="header-menu-item-link" href="{{ item.link }}"  {% if item.target %}target="{{ item.target }}"{% endif %}>
+						{{ item.title }}	
+						{% if item.children %}
+							<svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg>
+						{% endif %}	
+					</a>
+					{% if item.children %}
+					<ul class="submenu">
+						{% for item in item.children %}
+							{% if 'current-menu-item' in item.classes %}
+								{% set class = 'active' %}
+							{% else %}
+								{% set class = '' %}
+							{% endif %}
+						<li class="submenu-item {{ class }}">
+							<a class="submenu-item-link" href="{{ item.link }}" {% if item.target %}target="{{ item.target }}"{% endif %}>
+								{{ item.title }}	
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</li>
+			{% endfor %}
+			</ul>
+		</nav>
+		
+		<button class="button-menu" aria-label="Show Menu">
+			
+		</button>
+	
+	</div>	
+	
+</header>

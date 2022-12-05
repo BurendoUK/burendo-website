@@ -1,0 +1,16 @@
+<section class="layout-quotes bg-light-grey has-bg center">
+	<div class="container grid columns-2">
+	{% for item in layout.quotes %}
+		<blockquote class="f-28">
+			
+			‘{{ item.quote }}’
+			
+			{% if item.person %}
+			<cite class="pink f-20 f-bold">
+				{{ item.person }}
+			</cite>
+			{% endif %}
+		</blockquote>
+	{% endfor %}
+	</div>
+</section>

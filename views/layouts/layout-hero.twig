@@ -1,0 +1,63 @@
+{% if layout.font_size == 'normal' %}
+	{% set heading = 'f-32' %}
+{% else %}
+	{% set heading = 'f-44' %}
+{% endif %}
+{% if layout.format == 'has-text-overlaid' %}
+	{% set layoutclass = '' %}
+	{% set revealClass = '' %}
+{% else %}
+	{% set layoutclass = 'container grid columns-2' %}
+	
+	
+	{% if layout.background == 'bg-red' %}
+		{% set revealClass = 'has-reveal blue' %}
+	{% elseif  layout.background == 'bg-purple' %} 
+		{% set revealClass = 'has-reveal pink' %}
+	{% endif %}
+	
+{% endif %}
+<section class="layout-hero mb {{ layoutclass }} {{ layout.format }}">
+	{% if layout.format == 'has-text-overlaid' %}
+		<div class="container">
+	{% endif %}
+		<article class="hero-caption {{ layout.background }} reveal">		
+			{% if layout.title %}
+			<h1 class="{{ heading }} f-bold">
+				{{ layout.title }}
+			</h1> 
+			{% endif %}
+			{% if layout.subtitle %}
+			<h2 class="f-26 f-bold">
+				{{ layout.subtitle }}
+			</h2> 
+			{% endif %}
+		</article>	
+	{% if layout.format == 'has-text-overlaid' %}
+		</div>
+	{% endif %}
+	<figure>
+		{% if layout.format == 'has-text-overlaid' %}
+
+{{ function('wp_get_attachment_image_srcset',  layout.mobile_image.id, 'mobile' ) }}
+
+		<picture>
+			<source media="(min-width: 801px)" data-srcset="{{ function('wp_get_attachment_image_srcset',  layout.image.id, 'large' ) }}" />
+		    <source media="(max-width: 800px)" data-srcset="{{ layout.mobile_image.sizes['mobile'] }}" />
+		    <img alt="{{ layout.title }}" class="lazyload" data-src="{{  layout.image.sizes['large'] }}" width="{{  layout.image.sizes['large-width'] }}" height="{{  layout.image.sizes['large-height'] }}"  />
+		</picture>
+		{% else %}
+			{% set srcset = function('wp_get_attachment_image_srcset',  layout.image.id, 'large' ) %}		
+			{% include "partials/image.twig" with {
+					'src'	: layout.image.sizes['large'],
+					'srcset': srcset,
+					'sizes' : sizes,
+					'width'	: layout.image.sizes['large-width'],
+					'height': layout.image.sizes['large-height'],
+					'alt'	: layout.image.alt,
+					'class' : revealClass
+				} 
+			%}	
+		{% endif %}
+	</figure>
+</section>

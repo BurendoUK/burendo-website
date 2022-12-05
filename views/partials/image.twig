@@ -1,0 +1,10 @@
+<div class="image {{ class }}" style="padding-top: {{ (height / width)*100 }}%;">
+	<img data-src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" class="lazyload {% if 'has-reveal' in class %}update-parent{% endif %}" {% if srcset %}data-srcset="{{ srcset }}"{% endif %} {% if sizes %}sizes="{{ sizes }}"{% endif %}>
+</div>
+
+
+{% if caption %}
+<p class="caption f-14 f-italic">
+	{{ caption }}
+</p>
+{% endif %}

@@ -1,0 +1,32 @@
+<section class="layout-text-columns center mb {% if layout.background != 'none' %}{{ layout.background }} has-bg{% endif %}">
+	
+	{% if layout.title %}
+	<h2 class="f-32 f-bold {{ layout.colour }}">
+		{{ layout.title }}
+	</h2>
+	{% endif %}
+	
+	<div class="container grid columns-2">
+		{% if layout.left_text %}
+		<article class="f-28">
+			{% if layout.left_title %}
+			<h3 class="f-28 f-bold {{ layout.left_colour }}">
+				{{ layout.left_title }}
+			</h3>
+			{% endif %}
+			{{ layout.left_text | wpautop }}
+		</article>	
+		{% endif %}
+		{% if layout.right_text %}
+		<article class="f-28">
+			{% if layout.right_title %}
+			<h3 class="f-28 f-bold {{ layout.right_colour }}">
+				{{ layout.right_title }}
+			</h3>
+			{% endif %}
+			{{ layout.right_text | wpautop }}
+		</article>
+		{% endif %}
+	</div>	
+
+</section>

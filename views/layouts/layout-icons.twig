@@ -1,0 +1,16 @@
+{% if layout.background == 'bg-dark-blue' %}
+	{% set headingColor = 'red' %}
+{% endif %}
+<section class="layout-icons mb {% if layout.background != 'none' %}{{ layout.background }} has-bg{% endif %}">
+	<div class="container grid columns-3 {{ layout.mobile_columns }}">
+		{% for icon in layout.icons %}
+			<div>
+				<svg class="icon icon-{{ icon.icon }}"><use xlink:href="#icon-{{ icon.icon }}"></use></svg>
+				<h3 class="f-28 f-bold {{ headingColor }}">{{ icon.title }}</h3>
+				{% if icon.subtitle %}
+					<p class="f-20">{{ icon.subtitle }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+</section>

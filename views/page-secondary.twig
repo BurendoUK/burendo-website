@@ -1,0 +1,54 @@
+{% extends "base.twig" %}
+{% block content %}
+	
+	{% set hasShownText = false %}
+	{% set hasShownWorkable = false %}
+	
+	{% if post.layouts %}
+		{% for layout in post.get_field('layouts') %}
+			{% if layout.acf_fc_layout == 'hero' %}
+				{% include 'layouts/layout-' ~ layout.acf_fc_layout ~ '.twig' with { 'is_page' : true } %}	
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	
+	{% if post.layouts %}
+	<section class="layout-secondary-page grid columns-3 container">
+	
+		<aside class="secondary-page-sidebar">
+			<h2 class="f-28 f-bold">
+				{{ post.title }}
+			</h2>
+			<h3 class="f-28">
+				{{ post.modified | date('d/m/Y') }}
+			</h3>
+			{% if post.parent %}
+				{% set subpages = [post.parent] %}
+			{% else %}
+				{% set subpages = post.children('page') %}
+			{% endif %}
+			{% if subpages %}
+			<nav class="secondary-subpages red f-20 f-bold">
+				-<br>
+				{% for item in subpages %}
+					<a href="{{ function('get_permalink', item.id) }}">
+						{{ item.post_title }}
+						<svg class="icon icon-right"><use xlink:href="#icon-right"></use></svg>
+					</a>
+				{% endfor %}
+			</nav>
+			{% endif %}
+			
+		</aside>
+	
+		<div class="secondary-page-layouts">
+		{% for layout in post.get_field('layouts') %}
+			{% if layout.acf_fc_layout != 'hero' %}
+				{% include 'layouts/layout-' ~ layout.acf_fc_layout ~ '.twig' with { 'is_page' : true } %}	
+			{% endif %}
+		{% endfor %}
+		</div>
+	</section>
+	{% endif %}
+		
+{% endblock %}

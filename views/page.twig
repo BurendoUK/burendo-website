@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+{% block content %}
+	
+	{% set hasShownText = false %}
+	{% set hasShownWorkable = false %}
+	
+	{% if post.layouts %}
+		{% for layout in post.get_field('layouts') %}
+			{% if layout.acf_fc_layout == 'text' %}
+				{% set hasShownText = true %}
+			{% endif %}
+			{% include 'layouts/layout-' ~ layout.acf_fc_layout ~ '.twig' with { 'is_page' : true } %}	
+			{% if post.id == 97 and hasShownText and not hasShownWorkable %}
+				{% include 'layouts/layout-workable.twig' %}
+				{% set hasShownWorkable = true %}
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		<section class="layout-page start-column-5 end-column-11 mb f-16">
+			{{ post.content | wpautop | replace({'<h3>' : '<h3 class="f-serif bronze f-16 f-ucase">'}) }}
+		</section>
+	{% endif %}
+	
+	{% if events %}
+		{% include 'layouts/layout-events.twig' %}
+	{% endif %}
+	
+{% endblock %}

@@ -1,0 +1,100 @@
+<footer class="footer bg-blue white">
+	<div class="container grid columns-4">
+		
+		<nav class="footer-address">
+			<h3 class="f-18 f-bold">
+				Get in touch
+			</h3>
+			{% if options.footer.address %}
+			<address>
+				{{ options.footer.address }}
+			</address>
+			{% endif %}
+			
+			{% if options.footer.phone %}
+			<a href="tel:{{ options.footer.phone }}" class="footer-phone">
+				T: {{ options.footer.phone }}
+			</a>
+			{% endif %}
+
+			{% if options.footer.email %}
+			<a href="mailto:{{ options.footer.email }}" class="footer-email">
+				{{ options.footer.email }}
+			</a>
+			{% endif %}
+			
+			{% if options.footer.map %}
+			<a href="{{ options.footer.map.url }}" target="_blank" rel="nopopener" class="footer-map">
+				{{ options.footer.map.title }}
+				<svg class="icon icon-directions"><use xlink:href="#icon-directions"></use></svg>
+			</a>
+			{% endif %}
+			
+		</nav>
+		
+		<nav class="footer-menu footer-useful-links">
+			<h3 class="f-18 f-bold">
+				Useful Links
+			</h3>
+			{% for item in options.footer.useful_links.items %}
+			<a class="footer-menu-item-link {{ class }}" href="{{ item.link }}" {% if item.target %}target="{{ item.target }}"{% endif %}>
+				{{ item.title }}		
+			</a>
+			{% endfor %}
+		</nav>
+
+		<nav class="footer-menu footer-social">
+			<h3 class="f-18 f-bold">
+				Social
+			</h3>
+			{% for item in options.footer.social.items %}
+			<a class="footer-menu-item-link {{ class }}" href="{{ item.link }}" {% if item.target %}target="{{ item.target }}"{% endif %}>
+				{{ item.title }}		
+			</a>
+			{% endfor %}
+		</nav>
+
+		<nav class="footer-menu footer-policies">
+			<h3 class="f-18 f-bold">
+				Company Policies
+			</h3>
+			{% for item in options.footer.company_policies.items %}
+			<a class="footer-menu-item-link {{ class }}" href="{{ item.link }}" {% if item.target %}target="{{ item.target }}"{% endif %}>
+				{{ item.title }}		
+			</a>
+			{% endfor %}
+		</nav>
+		
+		{% if options.footer.logos %}
+		<nav class="footer-accreditations">
+			{% for item in options.footer.logos %}
+				{% if item.link %}
+					<a href="{{ item.link.url }}" class="footer-logo" target="_blank">
+				{% else %}
+					<div class="footer-logo">
+				{% endif %}
+
+				{% set srcset = function('wp_get_attachment_image_srcset',  item.logo.id, 'large' ) %}		
+				<div class="image">
+					<img data-src="{{ item.logo.sizes.thumbnail }}" width="{{ item.logo.sizes.thumbnail_width }}" height="{{ item.logo.sizes.thumbnail_height }}" alt="{{ item.logo.alt }}" class="lazyload" {% if srcset %}data-srcset="{{ srcset }}"{% endif %} {% if sizes %}sizes="{{ sizes }}"{% endif %}>
+				</div>
+				
+				{% if item.link %}
+					</a>
+				{% else %}
+					</div>
+				{% endif %}
+				
+			{% endfor %}
+		</nav>
+		{% endif %}
+		
+		<div class="footer-copyright f-14">
+			<p>
+				{{ options.footer.copyright }}
+			</p>
+		</div>
+
+	</div>	
+	<svg class="icon icon-marque"><use xlink:href="#icon-marque"></use></svg>
+</footer>

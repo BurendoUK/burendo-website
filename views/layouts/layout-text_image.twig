@@ -1,0 +1,36 @@
+{% if layout.font_size == 'smaller' %}
+	{% set titlesize = 'f-24' %}
+	{% set textsize = 'f-20' %}
+{% else %}
+	{% set titlesize = 'f-28' %}
+	{% set textsize = 'f-24' %}
+{% endif %}
+<section class="layout-text-image mb {% if layout.background != 'none' %}has-bg {{ layout.background }}{% endif %} {{ layout.format }}">
+	<div class="container">
+		<figure>
+		{% set srcset = function('wp_get_attachment_image_srcset',  layout.image.id, 'large' ) %}		
+		{% include "partials/image.twig" with {
+				'src'	: layout.image.sizes['large'],
+				'srcset': srcset,
+				'sizes' : sizes,
+				'width'	: layout.image.sizes['large-width'],
+				'height': layout.image.sizes['large-height'],
+				'alt'	: layout.image.alt,
+				'class' : 'has-reveal yellow'
+			} 
+		%}	
+		</figure>
+		<article class="text-image-caption {{ layout.title_background }} reveal">		
+			{% if layout.title %}
+			<h2 class="{{ titlesize }} white">
+				{{ layout.title }}
+			</h2> 
+			{% endif %}
+			{% if layout.subtitle %}
+			<h3 class="{{ textsize }} f-bold {% if layout.title_background == 'bg-blue' %}yellow{% endif %}">
+				{{ layout.subtitle }}
+			</h3> 
+			{% endif %}
+		</article>	
+	</div>
+</section>

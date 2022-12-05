@@ -1,0 +1,12 @@
+<section class="layout-text mb {% if layout.background != 'none' %}{{ layout.background }} has-bg{% endif %}" {% if layout.title %}id="{{ layout.title | sanitize }}"{% endif %}>
+	
+	<article class="{% if layout.text_size == 'smaller' %}f-24{% else %}f-28{% endif %}">
+		<h2 class="{% if layout.title_size == 'large' %}f-44{% else %}f-32{% endif %} f-bold {{ layout.colour }}">
+			{{ layout.title }}
+		</h2>
+		
+		{{ layout.text | wpautop }}
+		
+	</article>
+	
+</section>

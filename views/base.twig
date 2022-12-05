@@ -1,0 +1,33 @@
+{% block html_head_container %}
+{% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+        
+    <body class="{{function("addedlovely_body_class") }}">
+	
+        
+        {% block header %}
+        	{% include 'partials/header.twig' %}       
+		{% endblock %}
+
+        <div class="main"  data-scroll-container>
+            
+            {% block content %}
+            {% endblock %}
+                        
+            {% include 'partials/footer.twig' %}	           
+            
+        </div>
+
+        {% block footer %}
+        
+            {% include 'partials/svgs.twig' %}	           
+                        
+        {% endblock %}
+
+	    {{ function('wp_footer') }}
+	        		
+    </body>
+</html>

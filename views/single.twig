@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+{% block content %}
+	{% if hero.layouts %}
+		{% for layout in hero.get_field('layouts') %}
+			{% include 'layouts/layout-' ~ layout.acf_fc_layout ~ '.twig' with { 'is_page' : true } %}	
+		{% endfor %}
+	{% endif %}
+	{% if posts %}
+	<section class="layout-news container grid columns-3 mb">
+		<div class="news-post f-20">
+			<h2 class="f-28 f-bold">
+				{{ post.title }}
+			</h2>
+			
+			<h3 class="f-24">
+				{{ post.date | date('d/m/Y')}}
+			</h3>
+			
+			{{ post.content | wpautop }}
+				
+			<a href="{{ back }}" class="button-back red f-20 f-bold">
+				<svg class="icon icon-right"><use xlink:href="#icon-right"></use></svg>
+				Back to News
+			</a>
+		
+		</div>
+		{% include 'partials/news-sidebar.twig' %}
+	</section>
+	{% endif %}
+{% endblock %}
