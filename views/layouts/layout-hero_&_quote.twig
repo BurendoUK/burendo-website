@@ -1,0 +1,47 @@
+<section class="layout-hero-quote mb container grid columns-3">
+	<figure class="bg-blue">
+		{% set srcset = function('wp_get_attachment_image_srcset',  layout.image.id, 'large' ) %}		
+		{% include "partials/image.twig" with {
+				'src'	: layout.image.sizes['large'],
+				'srcset': srcset,
+				'sizes' : sizes,
+				'width'	: layout.image.sizes['large-width'],
+				'height': layout.image.sizes['large-height'],
+				'alt'	: layout.image.alt,
+				
+			} 
+		%}	
+		<figcaption class="white">
+			{% if layout.title %}
+			<h2 class="f-44 f-bold">
+				{{ layout.title }}
+			</h2>
+			{% endif %}
+			{% if layout.subtitle %}
+			<h3 class="f-28 f-bold">
+				{{ layout.subtitle }}
+			</h3>
+			{% endif %}
+		</figcaption>
+		<svg class="icon icon-marque"><use xlink:href="#icon-marque"></use></svg>
+	</figure>
+	<aside class="bg-purple">
+		{% set srcset = function('wp_get_attachment_image_srcset',  layout.quote_image.id, 'large' ) %}		
+		{% include "partials/image.twig" with {
+				'src'	: layout.quote_image.sizes['thumbnail'],
+				'srcset': srcset,
+				'sizes' : sizes,
+				'width'	: layout.quote_image.sizes['thumbnail-width'],
+				'height': layout.quote_image.sizes['thumbnail-height'],
+				'alt'	: layout.quote_image.alt,
+				'class' : 'has-reveal pink'
+			} 
+		%}	
+		<blockquote class="{% if layout.quote_font_size == 'normal' %}f-28{% else %}f-20{% endif %}">
+			{{ layout.quote }}
+			<cite class="f-20 f-bold">
+				{{ layout.person }}
+			</cite>
+		</blockquote>
+	</aside>
+</section>

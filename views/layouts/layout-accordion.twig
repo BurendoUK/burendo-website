@@ -1,0 +1,23 @@
+<section class="layout-accordion mb has-bg bg-light-grey {% if layout.has_first_section_open == 'yes' %}is-open-onload{% endif %}">
+
+	<h2 class="f-32 f-bold red center {{ layout.colour }}">
+		{{ layout.title }}
+	</h2>	
+	{% if layout.sections %}
+		{% for item in layout.sections %}
+		<article class="accordion" data-id="#{{  item.title | sanitize }}"> 
+			<h3 class="accordion-title f-32 f-bold">
+				<div class="accordion-title-inner">
+					{{ item.title }}
+					<svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg>
+				</div>
+			</h3>  
+			<div class="accordion-text {% if layout.text_size == 'smaller' %}f-24{% else %}f-28{% endif %} center"> 
+				<div class="accordion-text-inner">
+					{{ item.text }}
+				</div>
+			</div> 
+		</article>
+		{% endfor %}
+	{% endif %}
+</section>

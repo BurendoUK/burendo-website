@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<section class="layout-text mb layout-404">
+	
+	<article class="{% if layout.text_size == 'smaller' %}f-24{% else %}f-28{% endif %}">
+		<h2 class="f-44 f-bold">
+			Oops something went wrong.
+		</h2>
+		
+		<p>Please try another page.</p>
+		
+	</article>
+	
+</section>
+{% endblock %}

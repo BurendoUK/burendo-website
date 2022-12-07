@@ -1,0 +1,48 @@
+<section class="layout-contacts bg-light-grey">
+	
+	{% if layout.title %}
+	<h2 class="contacts-title f-32 f-bold center">
+		{{ layout.title }}
+	</h2>
+	{% endif %}
+	
+	{% if layout.subtitle %}
+	<h3 class="contacts-subtitle f-28 center">
+		{{ layout.subtitle }}
+	</h3>
+	{% endif %}
+	
+	<div class="grid {{ layout.columns }} f-20 container">
+	{% for item in layout.contacts %}
+		<article>
+			{% if item.video %}
+				<figure class="video-container">
+					<svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>
+				</figure>
+			{% endif %}
+			{% if item.title %}
+				<h3 class="f-28 f-bold purple">
+					{{ item.title }}
+				</h3>
+			{% endif %}
+			{% if item.excerpt %}
+				{{ item.excerpt | wpautop }}
+			{% endif %}
+			{% if item.link %}
+				{% if 'linkedin' in item.link.url %}
+					{% set isLinkedin = true %}
+				{% else %}
+					{% set isLinkedin = false %}
+				{% endif %}
+				<a href="{{ item.link.url }}" class="blue f-20 f-bold {% if isLinkedin %}has-icon{% endif %}" {% if item.link.target %}target="{{ item.link.target }}"{% endif %}>
+					{% if isLinkedin %}
+						<svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>
+					{% endif %}
+					{{ item.link.title }}
+				</a>
+			{% endif %}
+		</article>
+	{% endfor %}
+	</div>
+
+</section>

@@ -1,0 +1,33 @@
+<section class="layout-banners container mb grid columns-3">
+	{% set colours = ['light-blue', 'purple', 'yellow'] %}
+	{% for item in layout.banners %}
+	<article class="banner f-20">
+		{% set srcset = function('wp_get_attachment_image_srcset',  item.image.id, 'large' ) %}	
+		{% include "partials/image.twig" with {
+				'src'	: item.image.sizes.thumbnail,
+				'srcset': srcset,
+				'width'	: item.image.sizes['thumbnail-width'],
+				'height': item.image.sizes['thumbnail-height'],
+				'alt'	: item.image.alt,
+				'class' : 'has-reveal ' ~ cycle(colours, loop.index0)
+			} 
+		%}	
+		{% if item.title %}
+			<h3 class="f-28 f-bold">
+				{{ item.title }}
+			</h3>
+		{% endif %}
+		{% if item.text %}
+			<p>
+				{{ item.text }}
+			</p>
+		{% endif %}
+		{% if item.link %}
+			<a href="{{ item.link.url }}" class="banner-link f-bold" {% if item.link.target %}target="{{ item.link.target }}"{% endif %}>
+				{{ item.link.title }}
+				<svg class="icon icon-right"><use xlink:href="#icon-right"></use></svg>
+			</a>
+		{% endif %}
+	</article>
+	{% endfor %}
+</section>

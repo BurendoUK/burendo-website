@@ -1,0 +1,16 @@
+<article class="tease news f-20">
+	<h2 class="f-28 f-bold">
+		{{ post.title }}
+	</h2>
+	<h3 class="f-24">
+		{{ post.date | date('d/m/Y')}}
+	</h3>
+	
+	{{ post.preview.read_more('').strip(false) | wpautop }}
+	
+	<a href="{{ post.link }}" class="button-read-more red f-20 f-bold">
+		Read More
+		<svg class="icon icon-right"><use xlink:href="#icon-right"></use></svg>
+	</a>
+	
+</article>

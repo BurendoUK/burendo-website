@@ -1,0 +1,43 @@
+{% extends "base.twig" %}
+{% block content %}	
+<section class="layout-contact container grid columns-3 mb">
+
+	{% if post.thumbnail %}
+	<figure class="contact-map" id="map">
+
+	</figure>
+	{% endif %}
+	
+	<aside class="contact-details f-24">
+		<address>
+			{{ options.footer.address }}
+		</address>
+		<span class="red">–</span>
+		<a href="tel:{{ options.footer.phone }}">
+			T: {{ options.footer.phone }}
+		</a>
+		<a href="mailto:{{ options.footer.email }}">
+			{{ options.footer.email }}
+		</a>
+		<span class="red">–</span>
+		{% if options.footer.map %}
+		<a href="{{ options.footer.map.url }}" class="contact-directions" target="_blank">
+			{{ options.footer.map.title }} <svg class="icon icon-directions"><use xlink:href="#icon-directions"></use></svg>
+		</a>
+		{% endif %}
+	</aside>
+		
+	<article class="contact-form f-20">
+		<h2 class="f-32 f-bold red">
+			Get in touch
+		</h2>
+		{{ function('do_shortcode', '[gravityform id="1" title="false" description="false" ajax="true"]') }}
+	</article>
+			
+</section>	
+{% if post.layouts %}
+	{% for layout in post.get_field('layouts') %}
+		{% include 'layouts/layout-' ~ layout.acf_fc_layout ~ '.twig' with { 'is_page' : true } %}	
+	{% endfor %}
+{% endif %}
+{% endblock %}

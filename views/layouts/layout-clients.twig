@@ -1,0 +1,31 @@
+<section class="layout-clients mb">
+	<h2 class="f-32 f-bold">
+		{{ layout.title }}
+	</h2>
+	<div class="container grid columns-4">
+		{% for client in layout.clients %}
+			{% if client.link %}
+				<a href="{{ client.link.url }}" target="_blank">
+			{% else %}
+				<div>
+			{% endif %}
+			
+			{% set srcset = function('wp_get_attachment_image_srcset',  client.logo.id, 'large' ) %}		
+			{% include "partials/image.twig" with {
+					'src'	: client.logo.sizes['medium'],
+					'srcset': srcset,
+					'sizes' : sizes,
+					'width'	: 194,
+					'height': 120,
+					'alt'	: client.logo.alt,
+				} 
+			%}
+			
+			{% if client.link %}
+				</a>
+			{% else %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>

@@ -1,0 +1,18 @@
+{% if categories %}
+<aside class="news-sidebar f-24">
+	<h4 class="news-sidebar-heading f-28 purple f-bold" data-toggle="show-categories">
+		Categories 
+		<svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg>
+	</h4>
+	<div class="news-sidebar-inner">
+		<button class="button-categories-menu" data-toggle="show-categories" aria-label="Hide Categories">
+				
+		</button>
+		{% for item in categories %}	
+			<a href="{{ item.link }}" {% if active == item.id %}class="f-bold"{% endif %}>
+				–  {{ item.name }}
+			</a>
+		{% endfor %}
+	</div>
+</aside>
+{% endif %}

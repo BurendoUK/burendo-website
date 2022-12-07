@@ -1,0 +1,6 @@
+{% if link %}
+<a href="{{ link.url }}"{% if link.target %}target="{{ link.target }}"{% endif %} class="button-link f-12 f-bold f-ucase {% if colour %}{{ colour }}{% else %}green{% endif %}{% if hasunderline %} has-underline{% endif %}{% if class %} {{ class }}{% endif %}">
+	{{ link.title }}
+	<svg class="icon icon-button-arrow"><use xlink:href="#icon-button-arrow"></use></svg>
+</a>
+{% endif %}

@@ -1,0 +1,8 @@
+<section class="layout-button mb {% if layout.background != 'none' %}{{ layout.background }} has-bg{% endif %}">
+		
+	<a href="{{ layout.link.url }}" {% if layout.button.target %}target="{{ layout.button.target }}"{% endif %} class="button f-20 f-bold bg-red">
+		{{ layout.link.title }}
+		<svg class="icon icon-right"><use xlink:href="#icon-right"></use></svg>
+	</a>
+	
+</section>

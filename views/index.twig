@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+{% block content %}
+	{% if hero.layouts %}
+		{% for layout in hero.get_field('layouts') %}
+			{% include 'layouts/layout-' ~ layout.acf_fc_layout ~ '.twig' with { 'is_page' : true } %}	
+		{% endfor %}
+	{% endif %}
+	{% if posts %}
+	<section class="layout-news container grid columns-3 mb">
+		<div class="news-posts">
+		{% for post in posts %}
+			{% include 'partials/tease.twig' %}
+		{% endfor %}
+		</div>
+		{% include 'partials/news-sidebar.twig' %}
+	</section>
+	{% endif %}
+{% endblock %}

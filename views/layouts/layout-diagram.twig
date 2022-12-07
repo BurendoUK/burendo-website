@@ -1,0 +1,44 @@
+<section class="layout-diagram mb">
+	
+	<div class="container">
+	
+		<figure>
+			<svg height="220" viewBox="0 0 223 220" width="223" xmlns="http://www.w3.org/2000/svg">
+			<g fill="none" fill-rule="evenodd" transform="translate(6)">
+				<path d="m190.251593 56.9935c0 3.234 2.621 5.856 5.856 5.856 3.233 0 5.854-2.622 5.854-5.856s-2.621-5.856-5.854-5.856c-3.235 0-5.856 2.622-5.856 5.856" fill="#8c408a"  class="circle"/>
+				<path d="m190.251593 162.1203c0-3.234 2.621-5.856 5.856-5.856 3.233 0 5.854 2.622 5.854 5.856s-2.621 5.856-5.854 5.856c-3.235 0-5.856-2.622-5.856-5.856" fill="#8c408a"  class="circle"/>
+				<path d="m99.3824928 213.2579c0-3.234 2.6220002-5.856 5.8560002-5.856 3.233 0 5.854 2.622 5.854 5.856s-2.621 5.856-5.854 5.856c-3.234 0-5.8560002-2.622-5.8560002-5.856" fill="#8c408a" class="circle"/>
+				<path d="m20.1289928 162.1203c0-3.234-2.622-5.856-5.856-5.856s-5.85499996 2.622-5.85499996 5.856 2.62099996 5.856 5.85499996 5.856 5.856-2.622 5.856-5.856" fill="#8c408a"  class="circle"/>
+				<path d="m20.1289928 56.9935c0 3.234-2.622 5.856-5.856 5.856s-5.85499996-2.622-5.85499996-5.856 2.62099996-5.856 5.85499996-5.856 5.856 2.622 5.856 5.856" fill="#8c408a"  class="circle"/>
+				<path d="m110.998093 5.856c0 3.234-2.622 5.856-5.856 5.856s-5.8540002-2.622-5.8540002-5.856 2.6200002-5.856 5.8540002-5.856 5.856 2.622 5.856 5.856" fill="#8c408a" class="circle"/>
+			
+				<g transform="translate(27.982993 7.3199)">
+					<path d="m0 31.755c14.306-15.707 33.33-27.04 54.834-31.755" stroke="#ef5a73" stroke-linecap="round" stroke-width="11.778" class="animate"/>
+				</g>
+				<g transform="translate(127.563593 7.3199)">
+					<path d="m54.834 31.755c-14.306-15.707-33.331-27.04-54.834-31.755" stroke="#ef5a73" stroke-linecap="round" stroke-width="11.778" class="backwards"/>
+				</g>
+				<g transform="translate(205.090893 77.3802)">
+					<path d="m0 63.362c6.629-20.185 7.125-42.323.643-63.362" stroke="#ef5a73" stroke-linecap="round" stroke-width="11.778" class="animate"/>
+				</g>
+				<g transform="translate(0 77.3802)">
+					<path d="m5.24739284 63.362c-6.629-20.185-7.125-42.323-.643-63.362" stroke="#ef5a73" stroke-linecap="round" stroke-width="11.778" class="animate"/>
+				</g>
+				<g transform="translate(127.563593 180.0389)">
+					<path d="m54.834 0c-14.306 15.707-33.331 27.04-54.834 31.755" stroke="#ef5a73" stroke-linecap="round" stroke-width="11.778" class="animate"/>
+				</g>
+				<g transform="translate(27.982993 180.0389)">
+					<path d="m0 0c14.306 15.707 33.33 27.04 54.834 31.755" stroke="#ef5a73" stroke-linecap="round" stroke-width="11.778" class="animate"/>
+				</g>
+			</g>
+			</svg>
+		</figure>
+	
+		{% for item in layout.links %}
+			<a href="{{ item.link.url }}" class="diagram-link diagram-link-{{ loop.index }} f-28 bold">
+				{{ item.link.title }}
+			</a>
+		{% endfor %}
+	</div>
+	
+</section>

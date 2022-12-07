@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+	<section class="layout-search has-bg container inset white" data-scroll-section>
+		<h2 class="f-40 f-medium">
+			{{ function( 'pll_e', 'Search Results for') }} <span class="cyan">{{ title }}</span>
+		</h2>
+		{% if results %}
+			{% for post in results %}
+				{% include 'partials/tease-search.twig' %}
+			{% endfor %}		
+		{% else %}
+			<p class="no-results">
+				{{ function( 'pll_e', 'Sorry no results found, please search again') }}.
+			</p>
+		{% endif %}
+	</section>
+
+{% endblock %}
