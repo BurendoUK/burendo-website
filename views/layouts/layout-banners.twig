@@ -1,5 +1,5 @@
 <section class="layout-banners container mb grid columns-3">
-	{% set colours = ['light-blue', 'purple', 'yellow'] %}
+	{% set colours = ['blue', 'purple', 'yellow'] %}
 	{% for item in layout.banners %}
 	<article class="banner f-20">
 		{% set srcset = function('wp_get_attachment_image_srcset',  item.image.id, 'large' ) %}	
