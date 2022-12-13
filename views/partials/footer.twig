@@ -66,27 +66,27 @@
 		</nav>
 		
 		{% if options.footer.logos %}
-		<nav class="footer-accreditations">
-			{% for item in options.footer.logos %}
-				{% if item.link %}
-					<a href="{{ item.link.url }}" class="footer-logo" target="_blank" aria-label="{{ item.logo.alt }}" >
-				{% else %}
-					<div class="footer-logo">
-				{% endif %}
+			<div class="footer-accreditations">
+				{% for item in options.footer.logos %}
+					{% if item.link %}
+						<a href="{{ item.link.url }}" class="footer-logo" target="_blank" aria-label="{{ item.logo.alt }}">
+					{% else %}
+						<div class="footer-logo">
+					{% endif %}
 
-				{% set srcset = function('wp_get_attachment_image_srcset',  item.logo.id, 'large' ) %}		
-				<div class="image">
-					<img data-src="{{ item.logo.sizes.thumbnail }}" width="{{ item.logo.sizes.thumbnail_width }}" alt="alt="{{ item.logo.alt }}"" role="image" height="{{ item.logo.sizes.thumbnail_height }}" alt="{{ item.logo.alt }}" class="lazyload" {% if srcset %}data-srcset="{{ srcset }}"{% endif %} {% if sizes %}sizes="{{ sizes }}"{% endif %}>
-				</div>
-				
-				{% if item.link %}
-					</a>
-				{% else %}
+					{% set srcset = function('wp_get_attachment_image_srcset',  item.logo.id, 'large' ) %}		
+					<div class="image">
+						<img data-src="{{ item.logo.sizes.thumbnail }}" width="{{ item.logo.sizes.thumbnail_width }}" aalt="alt="{{ item.logo.alt }}"" role="image" lt height="{{ item.logo.sizes.thumbnail_height }}" alt="{{ item.logo.alt }}" class="lazyload" {% if srcset %}data-srcset="{{ srcset }}"{% endif %} {% if sizes %}sizes="{{ sizes }}"{% endif %}>
 					</div>
-				{% endif %}
-				
-			{% endfor %}
-		</nav>
+						
+					{% if item.link %}
+						</a>
+					{% else %}
+						</div>
+					{% endif %}
+						
+				{% endfor %}
+		</div>
 		{% endif %}
 		
 		<div class="footer-copyright f-14">
