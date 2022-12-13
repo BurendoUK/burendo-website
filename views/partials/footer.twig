@@ -64,7 +64,8 @@
 			</a>
 			{% endfor %}
 		</nav>
-		
+	</div>	
+	<div class="container grid columns-1">
 		{% if options.footer.logos %}
 			<div class="footer-accreditations">
 				{% for item in options.footer.logos %}
@@ -88,13 +89,13 @@
 				{% endfor %}
 		</div>
 		{% endif %}
-		
+	</div>
+	<div class="container grid columns-4">
 		<div class="footer-copyright f-14">
 			<p>
 				{{ options.footer.copyright }}
 			</p>
 		</div>
-
-	</div>	
+	</div>
 	<svg class="icon icon-marque"><use xlink:href="#icon-marque"></use></svg>
 </footer>
