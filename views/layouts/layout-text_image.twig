@@ -1,11 +1,14 @@
 {% if layout.font_size == 'smaller' %}
 	{% set titlesize = 'f-24' %}
 	{% set textsize = 'f-20' %}
-{% else %}
+{% elseif layout.font_size == 'smallest' %}
+	{% set titlesize = 'f-20' %}
+	{% set textsize = 'f-16' %}
+{% elseif layout.font_size == 'normal' %}
 	{% set titlesize = 'f-28' %}
 	{% set textsize = 'f-24' %}
 {% endif %}
-<section class="layout-text-image mb {% if layout.background != 'none' %}has-bg {{ layout.background }}{% endif %} {{ layout.format }}">
+<section class="layout-text-image {% if layout.background != 'none' %}has-bg {{ layout.background }}{% endif %} {{ layout.format }}">
 	<div class="container">
 		<figure>
 		{% set srcset = function('wp_get_attachment_image_srcset',  layout.image.id, 'large' ) %}		
@@ -16,7 +19,7 @@
 				'width'	: layout.image.sizes['large-width'],
 				'height': layout.image.sizes['large-height'],
 				'alt'	: layout.image.alt,
-				'class' : 'has-reveal yellow'
+				'class' : 'mb has-reveal yellow'
 			} 
 		%}	
 		</figure>

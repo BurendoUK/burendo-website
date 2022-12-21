@@ -77,7 +77,7 @@
 
 					{% set srcset = function('wp_get_attachment_image_srcset',  item.logo.id, 'large' ) %}		
 					<div class="image">
-						<img data-src="{{ item.logo.sizes.thumbnail }}" width="{{ item.logo.sizes.thumbnail_width }}" aalt="alt="{{ item.logo.alt }}"" role="image" lt height="{{ item.logo.sizes.thumbnail_height }}" alt="{{ item.logo.alt }}" class="lazyload" {% if srcset %}data-srcset="{{ srcset }}"{% endif %} {% if sizes %}sizes="{{ sizes }}"{% endif %}>
+						<img data-src="{{ item.logo.sizes.thumbnail }}" width="{{ item.logo.sizes.thumbnail_width }}" aalt="alt="{{ item.logo.alt }}"" role="img" lt height="{{ item.logo.sizes.thumbnail_height }}" alt="{{ item.logo.alt }}" class="lazyload" {% if srcset %}data-srcset="{{ srcset }}"{% endif %} {% if sizes %}sizes="{{ sizes }}"{% endif %}>
 					</div>
 						
 					{% if item.link %}
