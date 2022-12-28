@@ -9,40 +9,47 @@
 		</h1>
 				
 		<nav class="header-menu" id="menu">
-			<ul>
-			{% for item in options.header.menu.items %}
-				{% if 'current-menu-parent' in item.classes or 'current-product_cat-parent' in item.classes or 'current-menu-item' in item.classes %}
+	<ul>
+	{% for item in options.header.menu.items %} {# This is the top level #}
+	{% if 'current-menu-parent' in item.classes or 'current-product_cat-parent' in item.classes or 'current-menu-item' in item.classes %}
+		{% set class = 'active' %}
+			{% else %}
+		{% set class = '' %}
+	{% endif %}
+	<li class="header-menu-item {{ class }} {% if loop.last %}header-menu-item-contact f-bold{% endif %}{% if item.children %} has-submenu{% endif %}">
+		<a class="header-menu-item-link" href="{{ item.link }}"  {% if item.target %}target="{{ item.target }}"{% endif %}>
+			{{ item }}	
+			{% if item.children %}
+				<svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg>
+			{% endif %}	
+		</a>
+		{% if item.children %}
+		<ul class="submenu">
+			{% for child in item.children %} {# 2nd Level #}
+				{% if 'current-menu-item' in item.classes %}
 					{% set class = 'active' %}
-				{% else %}
+						{% else %}
 					{% set class = '' %}
 				{% endif %}
-				<li class="header-menu-item {{ class }} {% if loop.last %}header-menu-item-contact f-bold{% endif %}{% if item.children %} has-submenu{% endif %}">
-					<a class="header-menu-item-link" href="{{ item.link }}"  {% if item.target %}target="{{ item.target }}"{% endif %}>
-						{{ item.title }}	
-						{% if item.children %}
-							<svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg>
-						{% endif %}	
-					</a>
-					{% if item.children %}
-					<ul class="submenu">
-						{% for item in item.children %}
-							{% if 'current-menu-item' in item.classes %}
-								{% set class = 'active' %}
-							{% else %}
-								{% set class = '' %}
-							{% endif %}
-						<li class="submenu-item {{ class }}">
-							<a class="submenu-item-link" href="{{ item.link }}" {% if item.target %}target="{{ item.target }}"{% endif %}>
-								{{ item.title }}	
-							</a>
-						</li>
-						{% endfor %}
+			<li class="submenu-item {{ class }}">
+				<a class="submenu-item-link" href="{{ child.link }}" {% if child.target %}target="{{ child.target }}"{% endif %}>
+					{{ child }}	
+				</a>
+				{% if child.children %}
+					<ul>
+					{% for third in child.children %} {# 3rd Level #}
+						<li class="submenu-item"><a class="submenu-item-link" href="{{ third.link }}" {% if third.target %}target="{{ third.target }}"{% endif %}>{{ third }}</a></li>
+					{% endfor %} {# for third in child.children #}
 					</ul>
-					{% endif %}
-				</li>
-			{% endfor %}
-			</ul>
-		</nav>
+				{% endif %} {# if child.children #}
+			</li>
+			{% endfor %} {# for child in item.children #}
+		</ul>
+		{% endif %} {# if item.children #}
+	</li>
+	{% endfor %} {# for item in menu__main.items #}
+	</ul>
+</nav>
 		
 		<button class="button-menu" aria-label="Show Menu">
 			

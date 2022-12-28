@@ -139,7 +139,7 @@ form .gform_button svg { width: 10px; height: 17px; stroke:currentColor; margin:
 .submenu-item { list-style-type: none;  background: #f1f1f1; padding: 0 15px; }
 .submenu-item.active { font-weight: bold; }
 .submenu-item:last-child { padding-bottom: 15px; }
-.submenu-item:hover { font-weight: bold; }
+.submenu-item a:hover { font-weight: bold; }
 .header-menu-item:hover .submenu, .header-menu-item:focus .submenu { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
 
 /* Hero Variant */
