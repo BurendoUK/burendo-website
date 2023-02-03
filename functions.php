@@ -20,7 +20,7 @@ $addedlovely = (object) array(
 	'load_pinterest'		=>	false,
 	'ga_tracking_code'		=>	1234,
 	'google_conversion_id'	=>	false,
-	'google_maps_api_key'	=>	'AIzaSyB18ykHpKlyiSbefcpo0VxnN6MXKeWSRK0',
+	'google_maps_api_key'	=>	'AIzaSyA-9sCCe0-I6upuidqx5T1BvGZELfXhlfY',
 	'instgram_userId'		=>	1543748188,
 	'instagram_clientId'	=>	false,
 	'instagram_accessToken'	=>	false,
@@ -47,7 +47,7 @@ function addedlovely_child_styles() {
 	wp_enqueue_style( 'child-css', get_stylesheet_directory_uri() . '/style.css', '');
 	
 	if (is_page(10)) {
-		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBsjUSPYF9c8AixI8l68_aUfnQMlly0OfU&callback=page_contact&v=weekly',false, '4.0.9', true );	
+		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-9sCCe0-I6upuidqx5T1BvGZELfXhlfY&callback=page_contact&v=weekly',false, '4.0.9', true );	
 		array_push($dependencies, 'google-maps');
 	}
 	
