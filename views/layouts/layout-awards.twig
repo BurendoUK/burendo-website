@@ -1,0 +1,35 @@
+<section class="layout-awards mb">
+	<h2 class="f-32 f-bold">
+		{{ layout.title }}
+	</h2>
+	<div class="container grid columns-3">
+		{% for award in layout.awards %}
+			{% if award.link %}
+				<a href="{{ award.link.url }}" target="_blank">
+			{% else %}
+				<div>
+			{% endif %}
+			
+			{% set srcset = function('wp_get_attachment_image_srcset',  award.logo.id, 'large' ) %}		
+			{% include "partials/image.twig" with {
+					'src'	: award.logo.sizes['medium'],
+					'srcset': srcset,
+					'sizes' : sizes,
+					'width'	: 194,
+					'height': 120,
+					'alt'	: award.logo.alt,
+				} 
+			%}
+			<div style="text-align:center">
+			<strong>{{award.text}}</strong><br />
+			{{award.subtext}}
+			</div>
+			{% if award.link %}
+				</a>
+			
+			{% else %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>

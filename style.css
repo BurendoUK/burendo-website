@@ -3,7 +3,7 @@ Theme Name:   	Burendo
 Author:       	Addedlovely
 Author URI:     https://www.addedlovely.com
 Template:     	addedlovely
-Version:      	1.0.0
+Version:      	1.0.1
 Text Domain:  	addedlovely
 */
 
@@ -230,11 +230,11 @@ form .gform_button svg { width: 10px; height: 17px; stroke:currentColor; margin:
 .layout-icons svg { width: 76px; height: 76px; display: block; margin: auto auto 20px auto; }
 
 /* ==========================================================================
-  Layout : Clients
+  Layout : Clients and awards
   ========================================================================== */
-.layout-clients img { object-fit: contain; height: 100%; width: 100%; }
-.layout-clients .grid { grid-gap:80px; }
-.layout-clients h2 { grid-column: 1/-1; text-align: center; margin-bottom: 30px; }
+.layout-clients img, .layout-awards img { object-fit: contain; height: 100%; width: 100%; }
+.layout-clients .grid, .layout-awards .grid { grid-gap:80px; }
+.layout-clients h2, .layout-awards h2 { grid-column: 1/-1; text-align: center; margin-bottom: 30px; }
 
 /* ==========================================================================
   Layout : Button
