@@ -232,9 +232,9 @@ form .gform_button svg { width: 10px; height: 17px; stroke:currentColor; margin:
 /* ==========================================================================
   Layout : Clients
   ========================================================================== */
-.layout-clients img { object-fit: contain; height: 100%; width: 100%; }
-.layout-clients .grid { grid-gap:80px; }
-.layout-clients h2 { grid-column: 1/-1; text-align: center; margin-bottom: 30px; }
+.layout-clients img, .layout-awards img { object-fit: contain; height: 100%; width: 100%; }
+.layout-clients .grid, .layout-awards .grid { grid-gap:80px; }
+.layout-clients h2, .layout-awards h2 { grid-column: 1/-1; text-align: center; margin-bottom: 30px; }
 
 /* ==========================================================================
   Layout : Button
