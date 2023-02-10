@@ -2,7 +2,11 @@
 	<h2 class="f-32 f-bold">
 		{{ layout.title }}
 	</h2>
-	<div class="container grid columns-4">
+	{% if layout.clients|length > 5 %}
+		<div class="container grid columns-4">
+	{% else %}
+		<div class="container grid columns-{{ layout.clients|length }}">
+	{% endif %}		
 		{% for client in layout.clients %}
 			{% if client.link %}
 				<a href="{{ client.link.url }}" target="_blank">
@@ -11,7 +15,7 @@
 			{% endif %}
 			
 			{% set srcset = function('wp_get_attachment_image_srcset',  client.logo.id, 'large' ) %}		
-			{% include "partials/image.twig" with {
+			{% include "partials/image-clients.twig" with {
 					'src'	: client.logo.sizes['medium'],
 					'srcset': srcset,
 					'sizes' : sizes,
