@@ -6,6 +6,7 @@
             "key": "field_6321cd1a78ecb",
             "label": "New Layouts",
             "name": "new_layouts",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_6321cdce78ecc",
                             "label": "Background",
                             "name": "background",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -51,6 +53,7 @@
                             "key": "field_6321ce67f7248",
                             "label": "Services",
                             "name": "services",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -70,6 +73,7 @@
                                     "key": "field_6321ce73f7249",
                                     "label": "Service Name",
                                     "name": "service_name",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 1,
@@ -83,12 +87,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6321ce67f7248"
                                 },
                                 {
                                     "key": "field_6321ce7ff724a",
                                     "label": "Details",
                                     "name": "details",
+                                    "aria-label": "",
                                     "type": "textarea",
                                     "instructions": "",
                                     "required": 1,
@@ -102,12 +108,14 @@
                                     "placeholder": "",
                                     "maxlength": "",
                                     "rows": "",
-                                    "new_lines": ""
+                                    "new_lines": "",
+                                    "parent_repeater": "field_6321ce67f7248"
                                 },
                                 {
                                     "key": "field_6321ce8bf724b",
                                     "label": "Outcome",
                                     "name": "outcome",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -121,9 +129,11 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6321ce67f7248"
                                 }
-                            ]
+                            ],
+                            "rows_per_page": 20
                         }
                     ],
                     "min": "",
@@ -152,8 +162,8 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1663160072
+    "modified": 1675416066
 }

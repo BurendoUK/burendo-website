@@ -1,4 +1,4 @@
-	<section class="mb {% if layout.background != 'none' %}{{ layout.background }} has-bg{% endif %}" {% if layout.title %}id="{{ layout.title | sanitize }}"{% endif %}>
+	<section class="{% if layout.background != 'none' %}{{ layout.background }} has-bg{% endif %}" {% if layout.title %}id="{{ layout.title | sanitize }}"{% endif %}>
 
 	<h3 class="f-32 f-bold light-blue center mb {{ layout.colour }}">
 		{{ layout.title }}
@@ -19,9 +19,13 @@
 			} 
 		%}	
 		{% if item.title %}
+		{% if item.link %}
+			<a href="{{ item.link.url }}"
 			<h3 class="f-28 f-bold">
 				{{ item.title }}
+				</a>
 			</h3>
+			{% endif %}
 		{% endif %}
 		{% if item.text %}
 			<p>
