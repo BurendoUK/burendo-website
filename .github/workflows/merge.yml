@@ -24,7 +24,7 @@ jobs:
             role-skip-session-tagging: true
             aws-access-key-id: ${{ secrets.ACTIONS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.ACTIONS_SECRET_ACCESS_KEY }}
-            role-to-assume: ${{ secrets.AWS_GHA_ROLE }}
+            role-to-assume: ${{ secrets.AWS_GHA_ROLE_DEV }}
             role-duration-seconds: 900
             role-session-name: ${{ github.run_id }}-${{ github.run_number }}
             aws-region: eu-west-2
