@@ -31,7 +31,7 @@ jobs:
 
         - name: "Copy to S3"
           id: copy-to-s3
-          run: aws s3 sync build s3://burendocom-assets-burendo-${environment} --delete
+          run: aws s3 sync . s3://burendocom-assets-burendo-${environment}/website-theme --delete
           working-directory: .
           continue-on-error: false
 
