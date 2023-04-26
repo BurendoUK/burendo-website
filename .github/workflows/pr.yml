@@ -1,4 +1,4 @@
-name: "PROD Upload to S3"
+name: "DEV Upload to S3"
 on:
   push:
     branches:
@@ -9,8 +9,8 @@ on:
   pull_request:
 
 env:
-  environment: "prod"
-  role: ${{ secrets.AWS_GHA_ROLE }}
+  environment: "dev"
+  role: ${{ secrets.AWS_GHA_ROLE_DEV }}
 
 jobs:
     upload:
